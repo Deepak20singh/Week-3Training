@@ -5,6 +5,8 @@ public class RoundRobinNode {
     int burstTime;
     int priority;
     RoundRobinNode next;
+    static int numberOfProcess;
+    int initial;
 
     // Constructor to initialize the process node
     public RoundRobinNode(int processId, int burstTime, int priority) {
@@ -12,5 +14,7 @@ public class RoundRobinNode {
         this.burstTime = burstTime;
         this.priority = priority;
         this.next = null;
+        numberOfProcess++;
+        this.initial=0;
     }
 }
