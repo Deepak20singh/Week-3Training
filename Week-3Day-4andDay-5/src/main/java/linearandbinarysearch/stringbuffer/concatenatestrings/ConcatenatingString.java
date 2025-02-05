@@ -1,5 +1,4 @@
 package linearandbinarysearch.stringbuffer.concatenatestrings;
-
 public class ConcatenatingString {
     public static StringBuffer concatenaing(String[] str){
         StringBuffer result= new StringBuffer();
