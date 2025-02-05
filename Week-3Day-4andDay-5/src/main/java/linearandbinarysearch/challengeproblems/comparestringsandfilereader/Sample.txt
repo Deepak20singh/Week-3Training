@@ -1,0 +1,18 @@
+Thread synchronization in Java is important for managing shared resources in a multithreaded environment. It ensures that only one thread can access a shared resource at a time, which enhances the overall system performance and prevents race conditions and data corruption.
+
+Why is Thread Synchronization Important?
+In a multithreaded environment, threads may compete for shared resources i.e. files, memory, etc. Without synchronization, simultaneous access can lead
+
+Race Conditions: Multiple Threads interchanging shared data at the same time and it results an unpredictable output.
+Data Corruption: Incomplete or corrupted data when multiple threads modify the same resource simultaneously.
+Real-world Example:
+
+Imagine multiple computers connected to a single printer:
+
+If two computers send print jobs simultaneously, the printer might mix their outputs and that leads to invalid results.
+Similarly, threads accessing the same resource without coordination can produce inconsistent data.
+Thread Priorities
+In Java, thread priorities determine the execution order, allowing higher-priority threads to preempt lower ones and access resources first. However, when threads of equal priority compete for the same resource, conflicts can lead to inconsistent or erroneous outcomes.
+
+Mechanisms for Thread Synchronization
+Thread synchronization basically refers to The concept of one thread execute at a time and the rest of the threads are in waiting state. This process is known as thread synchronization. It prevents the thread interference and inconsistency problem.
