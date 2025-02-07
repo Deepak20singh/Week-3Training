@@ -1,142 +1,75 @@
 package linkedlist.circularlinkedlist.roundrobinschedulingalgorithm;
 
+import static linkedlist.circularlinkedlist.roundrobinschedulingalgorithm.RoundRobinNode.*;
+
 public class RoundRobinList {
-    private RoundRobinNode head;
-    private RoundRobinNode tail;
-    private int totalProcesses = 0;
-    static int totalTime=0;
+   
+    private int tq=3;
 
-    // Add a new process at the end
-    public void addProcess(int processId, int burstTime, int priority) {
-        RoundRobinNode newNode = new RoundRobinNode(processId, burstTime, priority);
-     if(head==null){
-         head=newNode;
-         tail=newNode;
-     }
-     else{
-         tail.next=newNode;
-     newNode.next=head;
-         tail = newNode;
-     }
-    totalProcesses++;
+    RoundRobinNode head=null;
+    RoundRobinNode temp=null;
+
+
+    public void addProcess(int processId,int burstTime,int priority){
+        RoundRobinNode newRoundRobinNode=new RoundRobinNode(processId,burstTime,priority);
+
+        if(head==null){
+            head=newRoundRobinNode;
+            temp=newRoundRobinNode;
+
+        }
+        else{
+            temp.next=newRoundRobinNode;
+            temp=newRoundRobinNode;
+            temp.next=head;
+        }
 
     }
+    int time=0;
 
-    // Remove a process by Process ID after its execution
-    public void deleteProcess(int processID) {
-        if (head == null) {
-            System.out.println("No processes to delete.");
-            return;
-        }
-
-        RoundRobinNode temp = head;
-        RoundRobinNode prev = tail; // Keep track of the previous node
-
-        // 🟢 Case 1: Single node in the list
-        if (head.processId == processID && head.next == head) {
-            head = null;
-            tail = null;
-            totalProcesses--;
-            return;
-        }
-
-        // 🟢 Case 2: Deleting the head node
-        if (head.processId == processID) {
-            head = head.next;
-            tail.next = head;  // Maintain circular connection
-            totalProcesses--;
-            return;
-        }
-
-        // 🟢 Case 3: Deleting a middle or last node
-        do {
-            prev = temp;
-            temp = temp.next;
-
-            if (temp.processId == processID) {
-                prev.next = temp.next;
-
-                // If deleting the tail, update `tail`
-                if (temp == tail) {
-                    tail = prev;
-                }
-
-                totalProcesses--;
-                return;
-            }
-        } while (temp != head); // Stop when full circle is completed
-
-        System.out.println("Process ID not found: " + processID);
-    }
-
-
-
-    // Simulate Round Robin scheduling with a fixed time quantum
-    public void roundRobinScheduling(int timeQuantum){
-        RoundRobinNode temp=head;
-        RoundRobinNode prev=tail;
+    public void startProcess(){
+        RoundRobinNode tail=head;
+        RoundRobinNode prev=temp;
         RoundRobinNode tester=prev;
-        while(totalProcesses!=0){
+        int t=counter;
+        System.out.println("\nTime Quantum is: "+tq);
+        System.out.println("\nStarting the process execution....\n");
+        // turn around time
 
-            temp.burstTime-=timeQuantum;
 
-            if (temp.burstTime <= 0) {
+        while(counter!=0){
+            time+=(tail.burstTime)-tq;
+            tail.burstTime= (tail.burstTime)-tq;
 
-            RoundRobinList.totalTime += temp.burstTime; // Adjust totalTime for the last burst
+            if(counter==1){
+                tail.next=tail;
+            }
 
-                temp.initial= totalTime; // Completion time calculation
-                System.out.println("Process deleted: " + temp.processId);
-               prev.next=temp.next;
-               tester=null;
-                totalProcesses--;
-            }else{
+            if(tail.burstTime<=0){
+                // true for temp too as the last tail will get plunge in
+                System.out.println("\nDeleting the process: " + tail.processId);
+                counter--;
+                prev.next = tail.next;
 
-            System.out.println("Process ID: " + temp.processId + ", Current Burst Time: " + temp.burstTime);
-            temp = temp.next;
-                System.out.println(temp.processId);
-           }
+                tester=null;
+            }
+            else {
+                System.out.println("\nProcess Id: " + tail.processId + "\nBurst Time: " +tail.burstTime+"\nPriority: " + tail.priority);
+            }
             if(tester!=null){
-              prev=temp;
+                prev=tail;
             }
-            tester=temp;
-            temp=temp.next;
+            tester=tail;
+            tail=tail.next;
 
-            RoundRobinList.totalTime+=timeQuantum;
+
         }
+        System.out.println("\nAll processes are executed..........");
+        System.out.println("\nTotal Time Taken by process: "+time);
+        System.out.println("\nAverage time taken by process: "+(time/t));
+
 
     }
 
-
-    public void scheduling(int timeQuantum){
-        RoundRobinNode temp=head;
-       while(totalProcesses!=0){
-
-            temp.burstTime-=timeQuantum;
-
-            if (temp.burstTime <= 0) {
-
-                RoundRobinList.totalTime += temp.burstTime; // Adjust totalTime for the last burst
-
-                temp.initial = totalTime;
-                // Completion time calculation
-                System.out.println("Total Time taken :- "+(temp.initial+timeQuantum));
-                deleteProcess(temp.processId);
-                System.out.println("Process deleted: " + temp.processId);
-                totalProcesses--;
-            }else{
-
-                System.out.println("Process ID: " + temp.processId + ", Current Burst Time: " + temp.burstTime);
-                System.out.println(temp.processId);
-            }
-           temp=temp.next;
-
-            RoundRobinList.totalTime+=timeQuantum;
-        }
-    }
-
-
-
-    // Display all processes in the circular list
 
 }
-
