@@ -1,0 +1,104 @@
+A linked list is a fundamental data structure in computer science. It mainly allows efficient insertion and deletion operations compared to arrays. Like arrays, it is also used to implement other data structures like stack, queue and deque. Here’s the comparison of Linked List vs Arrays
+
+Linked List:
+
+Data Structure: Non-contiguous
+Memory Allocation: Typically allocated one by one to individual elements
+Insertion/Deletion: Efficient
+Access: Sequential
+Array:
+
+Data Structure: Contiguous
+Memory Allocation: Typically allocated to the whole array
+Insertion/Deletion: Inefficient
+Access: Random
+
+Static Data Structure vs Dynamic Data Structure
+Last Updated : 22 Feb, 2023
+Data structure is a way of storing and organizing data efficiently such that the required operations on them can be performed be efficient with respect to time as well as memory. Simply, Data Structure are used to reduce complexity (mostly the time complexity) of the code. Data structures can be two types : 1. Static Data Structure 2. Dynamic Data Structure
+
+What is a Static Data structure?
+ In Static data structure the size of the structure is fixed. The content of the data structure can be modified but without changing the memory space allocated to it.
+
+
+
+Example of Static Data Structures: Array
+
+What is Dynamic Data Structure?
+In Dynamic data structure the size of the structure is not fixed and can be modified during the operations performed on it. Dynamic data structures are designed to facilitate change of data structures in the run time.
+
+
+
+Example of Dynamic Data Structures: Linked List
+
+Static Data Structure vs Dynamic Data Structure
+
+Static data structures, such as arrays, have a fixed size and are allocated at compile-time. This means that their memory size cannot be changed during program execution. Index-based access to elements is fast and efficient since the address of the element is known.
+Dynamic data structures, on the other hand, have a variable size and are allocated at run-time. This means that their memory size can be changed during program execution. Memory can be dynamically allocated or deallocated during program execution. Due to this dynamic nature, accessing elements based on index may be slower as it may require memory allocation and deallocation.
+Aspect	Static Data Structure	Dynamic Data Structure
+Memory allocation	Memory is allocated at compile-time	Memory is allocated at run-time
+Size	Size is fixed and cannot be modified	Size can be modified during runtime
+Memory utilization	Memory utilization may be inefficient	Memory utilization is efficient as memory can be reused
+Access	Access time is faster as it is fixed	Access time may be slower due to indexing and pointer usage
+Examples	Arrays, Stacks, Queues, Trees (with fixed size)	 Lists, Trees (with variable size), Hash tables
+Advantage of Static data structure :
+
+Fast access time: Static data structures offer fast access time because memory is allocated at compile-time and the size is fixed, which makes accessing elements a simple indexing operation.
+Predictable memory usage: Since the memory allocation is fixed at compile-time, the programmer can precisely predict how much memory will be used by the program, which is an important factor in memory-constrained environments.
+Ease of implementation and optimization: Static data structures may be easier to implement and optimize since the structure and size are fixed, and algorithms can be optimized for the specific data structure, which reduces cache misses and can increase the overall performance of the program.
+Efficient memory management: Static data structures allow for efficient memory allocation and management. Since the size of the data structure is fixed at compile-time, memory can be allocated and released efficiently, without the need for frequent reallocations or memory copies.
+Simplified code: Since static data structures have a fixed size, they can simplify code by removing the need for dynamic memory allocation and associated error checking.
+Reduced overhead: Static data structures typically have lower overhead than dynamic data structures, since they do not require extra bookkeeping to manage memory allocation and deallocation.
+Advantage Of Dynamic Data Structure :
+
+Flexibility: Dynamic data structures can grow or shrink at runtime as needed, allowing them to adapt to changing data requirements. This flexibility makes them well-suited for situations where the size of the data is not known in advance or is likely to change over time.
+Reduced memory waste: Since dynamic data structures can resize themselves, they can help reduce memory waste. For example, if a dynamic array needs to grow, it can allocate additional memory on the heap rather than reserving a large fixed amount of memory that might not be used.
+Improved performance for some operations: Dynamic data structures can be more efficient than static data structures for certain operations. For example, inserting or deleting elements in the middle of a dynamic list can be faster than with a static array, since the remaining elements can be shifted over more efficiently.
+Simplified code: Dynamic data structures can simplify code by removing the need for manual memory management. Dynamic data structures can also reduce the complexity of code for data structures that need to be resized frequently.
+Scalability: Dynamic data structures can be more scalable than static data structures, as they can adapt to changing data requirements as the data grows.
+
+Static and Dynamic Data Structures
+Last Updated : 06 Jun, 2024
+Data structures are the fundamental building blocks of computer programming. They determine how data is organized, stored, and manipulated within a software application. There are two main categories of data structures: static and dynamic. Static data structures have a fixed size and are allocated in memory during compile-time, while dynamic data structures can grow and shrink in size during runtime. This article will provide an overview of the key differences between static and dynamic data structures, their use cases, and the trade-offs to consider when choosing between them.
+
+Table of Content
+
+What is Static Data structure?
+Features of Static Data Structures
+Advantages of Static Data Structures
+Disadvantages of Static Data Structures
+Examples of Static Data Structures
+What is Dynamic Data Structure?
+Features of Dynamic Data Structures
+Advantages of Dynamic Data Structures
+Disadvantages of Dynamic Data Structures
+Examples of Dynamic Data Structures
+Difference between Static and Dynamic Data Structure
+What is Static Data Structure?
+Static data structures are characterized by their fixed size and predefined memory allocation. This means that the amount of memory allocated to the structure is determined at compile time and remains constant throughout the program’s execution. Examples of static data structures include arrays .
+
+Features of Static Data Structures:
+There are many features of static data structures. Let’s discuss the most popular of them:
+
+Memory Allocation: For static data structures, static memory is allocated at the compile time by the compiler, which is stored in the stack memory of the program.
+Memory Deallocation: Memory allocated to the static data structures deallocates when they go out of scope or the program ends.
+Continuous Memory Allocation: As we have discussed above, continuous memory is allocated to the static data structures, which means there is no need to store the structural information of the data structure or explicit data variable to store the information of the memory location.
+Advantages of Static Data Structures:
+Static data structures have a fixed size and structure, making them simpler to implement and understand.
+Since the size is known in advance, the memory can be allocated efficiently.
+The behavior of static data structures is more predictable, making them suitable for real-time systems.
+Accessing elements in static data structures is generally faster than in dynamic data structures.
+Disadvantages of Static Data Structures:
+The size and structure of static data structures are fixed, which can lead to inefficient memory usage if the data requirements change.
+Static data structures have a predefined size, limiting their ability to handle large and varying amounts of data.
+If the data size is smaller than the allocated memory, the unused memory is wasted.
+Expanding the size of a static data structure requires complex procedures, such as creating a new, larger structure and copying the data.
+Examples of Static Data Structures:
+Array : An array is a collection of elements identified by index or key values. The size of the array is specified at the time of creation and remains constant. For example, an array of integers can be declared as int arr[8]; in C++, which creates an array of size 8.
+
+
+
+Memory-Representation-of-Array-(1)
+
+
+Note: Problem with above Array implementation: Once we create the Array we cannot alter the size
